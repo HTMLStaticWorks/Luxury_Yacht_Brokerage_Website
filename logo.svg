@@ -1,0 +1,15 @@
+<svg width="200" height="50" viewBox="0 0 180 50" xmlns="http://www.w3.org/2000/svg" fill="none">
+  
+  <!-- Yacht Icon -->
+  <path d="M10 30 L35 20 L60 30 L50 35 L20 35 Z" fill="#ac4bd9ff"/>
+  <path d="M35 20 L35 10 L45 18 Z" fill="#584281ff"/>
+  
+  <!-- Wave Line -->
+  <path d="M10 38 Q30 42 50 38 T90 38" stroke="#88b0dcff" stroke-width="1.5" fill="none"/>
+
+  <!-- Brand Text -->
+  <text x="70" y="30" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#584281ff" letter-spacing="1">
+    OCEAN ELITE
+  </text>
+
+</svg>

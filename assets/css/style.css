@@ -1,0 +1,671 @@
+/* 
+   Luxury Yacht Brokerage - Ocean Elite 
+   Design System & Base Styles
+*/
+
+:root {
+    --primary-gold: #584281ff;
+    --primary-gold-hover: #ac4bd9ff;
+    --bg-white: #ffffff;
+    --bg-light: #f8f9fa;
+    --bg-dark: #121212;
+    --bg-dark-soft: #1e1e1e;
+    --text-dark: #111111;
+    --text-light: #f1f1f1;
+    --text-muted: #6c757d;
+    --border-color: #e0e0e0;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --header-height: 80px;
+    --font-main: 'Outfit', sans-serif;
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] {
+    --bg-white: #121212;
+    --bg-light: #1e1e1e;
+    --bg-dark: #0a0a0a;
+    --text-dark: #f1f1f1;
+    --text-light: #111111;
+    --text-muted: #a0a0a0;
+    --border-color: #333333;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* RTL Support Logic */
+[dir="rtl"] {
+    text-align: right;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h1,
+h2,
+h3,
+h4,
+.luxury-font {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 2rem;
+    border-radius: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-gold);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-gold-hover);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 1px solid var(--primary-gold);
+    color: var(--primary-gold);
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-gold);
+    color: white;
+}
+
+/* Header */
+header {
+    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    transition: var(--transition);
+}
+
+header.scrolled {
+    background: var(--bg-white);
+    box-shadow: var(--shadow);
+    height: 70px;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+header {
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] header {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+header.scrolled,
+header.header-always-scrolled {
+    background: var(--bg-white);
+    box-shadow: var(--shadow);
+    height: 70px;
+    /* Slightly thinner on scroll for premium feel */
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-link {
+    font-size: 0.813rem;
+    font-weight: 500;
+    color: white;
+    /* Default to white for Hero pages */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: var(--transition);
+}
+
+header.scrolled .nav-link,
+header.header-always-scrolled .nav-link {
+    color: var(--text-dark) !important;
+}
+
+[data-theme="dark"] header.scrolled .nav-link,
+[data-theme="dark"] header.header-always-scrolled .nav-link {
+    color: white !important;
+}
+
+/* Premium Toggle Controls */
+.nav-actions .btn-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+header.scrolled .nav-actions .btn-icon,
+header.header-always-scrolled .nav-actions .btn-icon {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.05);
+    color: var(--text-dark);
+}
+
+[data-theme="dark"] header.scrolled .nav-actions .btn-icon,
+[data-theme="dark"] header.header-always-scrolled .nav-actions .btn-icon {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.nav-actions .btn-icon:hover {
+    background: var(--primary-gold);
+    border-color: var(--primary-gold);
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(88, 66, 129, 0.3);
+}
+
+header .btn-icon,
+header .nav-link {
+    color: white;
+}
+
+header.scrolled .btn-icon,
+header.header-always-scrolled .btn-icon {
+    color: var(--text-dark) !important;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+header.header-always-scrolled .logo img,
+[style*="background: var(--bg-white)"] .logo img {
+    filter: none !important;
+}
+
+body > div > div .nav-actions .btn-icon {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: var(--text-dark);
+}
+
+[data-theme="dark"] body > div > div .nav-actions .btn-icon {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+/* Footer Styles */
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white !important;
+    font-size: 0.875rem;
+    transition: var(--transition);
+}
+
+.social-icon:hover {
+    background: var(--primary-gold);
+    border-color: var(--primary-gold);
+    color: white !important;
+    transform: translateY(-3px);
+}
+
+/* Footer - Ultra-Compact & Premium */
+.site-footer {
+    background: var(--bg-dark);
+    color: white;
+    padding: 2.5rem 0 0.75rem;
+    /* Reduced bottom padding */
+    margin-top: 0;
+    /* Align directly with preceding sections */
+    border-top: 5px solid var(--primary-gold);
+    /* Decorative accent border */
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem 4rem;
+    margin-bottom: 1rem;
+    /* Significantly reduced inner gap */
+}
+
+.footer-logo {
+    height: 40px !important;
+    /* Reset to match header exactly */
+    margin-bottom: 2rem !important;
+}
+
+.footer-link {
+    color: inherit;
+    opacity: 0.7;
+    transition: var(--transition);
+    text-decoration: none;
+    font-size: 0.813rem;
+}
+
+.footer-link:hover {
+    color: var(--primary-gold-hover) !important; /* Use brighter violet for emphasis */
+}
+
+/* Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RTL Header Adjustments */
+[dir="rtl"] .nav-menu {
+    flex-direction: row-reverse;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1;
+}
+
+/* Hero Search Bar - Premium Integrated */
+.hero-search-wrapper {
+    position: relative;
+    z-index: 10;
+    margin-top: 0;
+    /* Removed overlap to keep hero viewport clean */
+}
+
+.hero-search-container {
+    background: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 4px solid var(--primary-gold);
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    align-items: flex-end;
+    color: white;
+}
+
+.hero-search-field label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--primary-gold-hover); /* Using brighter violet for visibility */
+}
+
+.hero-search-field select,
+.hero-search-field input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-family: inherit;
+    transition: var(--transition);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ac4bd9' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 15px) center;
+}
+
+.hero-search-field select:focus {
+    border-color: var(--primary-gold);
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+[dir="rtl"] .hero-search-field select {
+    background-position: 15px center;
+}
+
+/* Cards */
+.yacht-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    position: relative;
+    transition: var(--transition);
+}
+
+.yacht-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow);
+}
+
+.yacht-thumb {
+    height: 250px;
+    overflow: hidden;
+}
+
+.yacht-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.yacht-card:hover .yacht-thumb img {
+    transform: scale(1.1);
+}
+
+.yacht-info {
+    padding: 1.5rem;
+}
+
+.yacht-price {
+    color: var(--primary-gold);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* Utility */
+.section-padding {
+    padding: 100px 0;
+}
+
+.text-gold {
+    color: var(--primary-gold);
+}
+
+/* Comprehensive RTL Support */
+[dir="rtl"] {
+    text-align: right;
+}
+
+[dir="rtl"] .nav-menu {
+    flex-direction: row-reverse;
+    margin-right: 3rem;
+    margin-left: 0;
+}
+
+[dir="rtl"] .nav-actions {
+    flex-direction: row-reverse;
+    margin-left: initial;
+    margin-right: auto;
+}
+
+[dir="rtl"] .nav-actions>* {
+    margin-left: 1.5rem;
+    margin-right: 0;
+}
+
+[dir="rtl"] .ms-auto {
+    margin-right: auto !important;
+    margin-left: initial !important;
+}
+
+[dir="rtl"] .me-3 {
+    margin-left: 1rem !important;
+    margin-right: initial !important;
+}
+
+[dir="rtl"] .me-auto {
+    margin-left: auto !important;
+    margin-right: initial !important;
+}
+
+/* Directional Elements Mirroring */
+[dir="rtl"] .fa-arrow-right,
+[dir="rtl"] .fa-chevron-right,
+[dir="rtl"] .fa-long-arrow-alt-right {
+    transform: scaleX(-1);
+    display: inline-block;
+}
+
+[dir="rtl"] .btn i:last-child {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+/* Page Specific RTL Adjustments */
+[dir="rtl"] .yacht-info {
+    text-align: right;
+}
+
+[dir="rtl"] .hero-content {
+    text-align: right;
+}
+
+/* Yachts Listing Sidebar */
+[dir="rtl"] .section-padding .container>div {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] aside {
+    border-left: 1px solid var(--border-color);
+    border-right: none;
+}
+
+/* Footer RTL */
+[dir="rtl"] footer .container>div {
+    text-align: right;
+}
+
+[dir="rtl"] .social-links {
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+}
+
+/* Dashboard RTL */
+[dir="rtl"] .dashboard-sidebar {
+    left: auto;
+    right: 0;
+    border-left: 1px solid var(--border-color);
+    border-right: none;
+}
+
+[dir="rtl"] .dashboard-main {
+    margin-left: 0;
+    margin-right: var(--sidebar-width);
+}
+
+[dir="rtl"] .top-bar {
+    left: 0;
+    right: var(--sidebar-width);
+}
+
+/* Advanced RTL Overrides & Mirroring */
+[dir="rtl"] .nav-link i,
+[dir="rtl"] .btn i:first-child {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+[dir="rtl"] .reveal {
+    transform: translateY(30px);
+    /* Reset or ensure same appearance */
+}
+
+/* Home 2 Hero Absolute Fix */
+[dir="rtl"] section>div[style*="position: relative"]>div[style*="left: 4rem"] {
+    left: auto !important;
+    right: 4rem !important;
+    border-left: none !important;
+    border-right: 2px solid var(--primary-gold) !important;
+}
+
+/* Common Text Alignment */
+[dir="rtl"] .text-center {
+    text-align: center !important;
+}
+
+[dir="rtl"] .text-right {
+    text-align: left !important;
+}
+
+[dir="rtl"] .text-left {
+    text-align: right !important;
+}
+
+/* Dashboard Specifics */
+[dir="rtl"] aside[style*="width: 280px"] {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: none;
+}
+
+[dir="rtl"] .dash-link {
+    flex-direction: row;
+    /* Ensure text and icon order */
+}
+
+[dir="rtl"] .dash-link i {
+    margin-right: 0;
+    margin-left: 1rem;
+}
+
+/* Footer Grid RTL */
+[dir="rtl"] footer .container>div[style*="display: grid"] {
+    direction: rtl;
+}
+
+/* Form Inputs */
+[dir="rtl"] input,
+[dir="rtl"] textarea,
+[dir="rtl"] select {
+    text-align: right;
+}
+
+/* Absolute Mirroring General Rule */
+[dir="rtl"] [style*="left: 2rem"],
+[dir="rtl"] [style*="left: 4rem"],
+[dir="rtl"] [style*="left: 10%"] {
+    left: auto !important;
+    right: 2rem !important;
+    /* defaults to 2rem if mixed, better to be specific in targeted rules above */
+}
+
+[dir="rtl"] [style*="left: 4rem"] {
+    right: 4rem !important;
+}
+
+[dir="rtl"] [style*="left: 10%"] {
+    right: 10% !important;
+}
+
+/* Dashboard Sidebar RTL Fix */
+[dir="rtl"] aside[style*="width: 280px"] {
+    position: relative;
+    order: 2;
+    /* Move to right in flex parent */
+}

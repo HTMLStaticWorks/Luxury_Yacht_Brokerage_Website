@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Ocean Elite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background: var(--bg-light); display: flex; height: 100vh; overflow: hidden;">
+
+    <!-- Sidebar -->
+    <aside style="width: 280px; background: var(--bg-dark); color: white; display: flex; flex-direction: column; transition: var(--transition);">
+        <div style="padding: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <img src="logo.svg" alt="Logo" style="height: 30px;">
+        </div>
+        
+        <nav style="flex: 1; padding: 2rem 1rem;">
+            <ul style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <li><a href="#" class="dash-link active"><i class="fas fa-th-large"></i> Overview</a></li>
+                <li><a href="#" class="dash-link"><i class="fas fa-ship"></i> My Listings</a></li>
+                <li><a href="#" class="dash-link"><i class="fas fa-heart"></i> Saved Yachts</a></li>
+                <li><a href="#" class="dash-link"><i class="fas fa-envelope"></i> Inquiries</a></li>
+                <li><a href="#" class="dash-link"><i class="fas fa-user-circle"></i> Profile</a></li>
+                <li style="margin-top: auto;"><a href="index.html" class="dash-link"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+
+        <div style="padding: 2rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; gap: 1rem; justify-content: center;" class="nav-actions">
+             <button id="theme-toggle" class="btn-icon"><i class="fas fa-moon"></i></button>
+             <button id="rtl-toggle" class="btn-icon"><i class="fas fa-language"></i></button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main style="flex: 1; display: flex; flex-direction: column; overflow-y: auto;">
+        <!-- Top Header -->
+        <header style="height: 80px; background: var(--bg-white); display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; box-shadow: var(--shadow); position: sticky; top:0; z-index: 100;">
+            <nav class="nav-menu" style="display: flex; gap: 2rem;">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="home-2.html" class="nav-link">Home 2</a>
+                <a href="yachts.html" class="nav-link">Yachts</a>
+                <a href="charter.html" class="nav-link">Charter</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+            </nav>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="text-align: right;">
+                    <p style="font-weight: 600; font-size: 0.875rem;">Krish Admin</p>
+                    <p style="font-size: 0.75rem; color: var(--text-muted);">Master Broker</p>
+                </div>
+                <div style="width: 45px; height: 45px; border-radius: 50%; background: var(--primary-gold); display: flex; align-items: center; justify-content: center; color: white;">K</div>
+            </div>
+        </header>
+
+        <div style="padding: 2rem;">
+            <!-- Stats -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+                <div class="stat-card">
+                    <p style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted);">Active Listings</p>
+                    <h2 style="font-size: 2rem; margin-top: 0.5rem;">12</h2>
+                </div>
+                <div class="stat-card">
+                    <p style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted);">New Inquiries</p>
+                    <h2 style="font-size: 2rem; margin-top: 0.5rem;">05</h2>
+                </div>
+                <div class="stat-card">
+                    <p style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted);">Saved Yachts</p>
+                    <h2 style="font-size: 2rem; margin-top: 0.5rem;">08</h2>
+                </div>
+                <div class="stat-card" style="background: var(--primary-gold); color: white;">
+                    <p style="font-size: 0.75rem; text-transform: uppercase; opacity: 0.8;">Total Views</p>
+                    <h2 style="font-size: 2rem; margin-top: 0.5rem;">1.2k</h2>
+                </div>
+            </div>
+
+            <!-- Table Section -->
+            <div style="background: var(--bg-white); padding: 2rem; box-shadow: var(--shadow);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h3>Recent Inquiries</h3>
+                    <button class="btn btn-outline" style="font-size: 0.75rem;">View All</button>
+                </div>
+                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <thead style="background: var(--bg-light);">
+                        <tr>
+                            <th style="padding: 1rem;">Client</th>
+                            <th style="padding: 1rem;">Yacht</th>
+                            <th style="padding: 1rem;">Date</th>
+                            <th style="padding: 1rem;">Status</th>
+                            <th style="padding: 1rem;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem;">John Miller</td>
+                            <td style="padding: 1rem;">Azure Serenity</td>
+                            <td style="padding: 1rem;">Mar 25, 2026</td>
+                            <td style="padding: 1rem;"><span style="color: #ecb22e; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Pending</span></td>
+                            <td style="padding: 1rem;"><a href="#" class="text-gold">Reply</a></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem;">Sofia Rossi</td>
+                            <td style="padding: 1rem;">Midnight Pearl</td>
+                            <td style="padding: 1rem;">Mar 24, 2026</td>
+                            <td style="padding: 1rem;"><span style="color: #2eb67d; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Responded</span></td>
+                            <td style="padding: 1rem;"><a href="#" class="text-gold">View</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/main.js"></script>
+    <style>
+        .dash-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            color: rgba(255,255,255,0.7);
+            border-radius: 8px;
+            font-size: 0.813rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .dash-link:hover, .dash-link.active {
+            background: rgba(255,255,255,0.1);
+            color: var(--primary-gold);
+        }
+        .stat-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-gold);
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Elite | Luxury Yacht Brokerage</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header-always-scrolled">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo.svg" alt="Ocean Elite Logo">
+            </a>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="home-2.html" class="nav-link">Home 2</a>
+                <a href="yachts.html" class="nav-link">Yachts</a>
+                <a href="charter.html" class="nav-link">Charter</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="btn-icon" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="rtl-toggle" class="btn-icon" title="Toggle RTL">
+                    <i class="fas fa-language"></i>
+                </button>
+                <a href="login.html" class="nav-link">Login</a>
+                <a href="yachts.html" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: url('assets/images/luxury_yacht_hero.png') center/cover no-repeat;">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="reveal">Defining the Art of <span class="text-gold">Sailing</span></h1>
+            <p class="reveal" style="font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.9;">Exclusive brokerage and
+                charter services for the world's most discerning clients.</p>
+            <div class="hero-btns reveal">
+                <a href="yachts.html" class="btn btn-primary">Browse Collection</a>
+                <a href="contact.html" class="btn btn-outline" style="margin-left: 1rem;">Private Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search/Filter Bar -->
+    <section class="hero-search-wrapper">
+        <div class="container">
+            <div class="hero-search-container">
+                <div class="hero-search-field">
+                    <label>Type</label>
+                    <select>
+                        <option>All Yachts</option>
+                        <option>Motor Yacht</option>
+                        <option>Sailing Yacht</option>
+                    </select>
+                </div>
+                <div class="hero-search-field">
+                    <label>Location</label>
+                    <select>
+                        <option>Mediterranean</option>
+                        <option>Caribbean</option>
+                        <option>USA</option>
+                    </select>
+                </div>
+                <div class="hero-search-field">
+                    <label>Length</label>
+                    <select>
+                        <option>30m - 50m</option>
+                        <option>50m - 80m</option>
+                        <option>80m+</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" style="height: 54px;">Find Your Yacht</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Yachts -->
+    <section class="section-padding">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 class="reveal">Featured <span class="text-gold">Listings</span></h2>
+                <div style="width: 60px; height: 2px; background: var(--primary-gold); margin: 1.5rem auto;"></div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+                <!-- Yacht 1 -->
+                <div class="yacht-card reveal">
+                    <div class="yacht-thumb">
+                        <img src="assets/images/featured_yacht_1.png" alt="Azure Serenity">
+                    </div>
+                    <div class="yacht-info">
+                        <h3>Azure Serenity</h3>
+                        <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;">65m | Benetti |
+                            2023</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span class="yacht-price">€75,000,000</span>
+                            <a href="yacht-details.html" class="btn-outline"
+                                style="font-size: 0.75rem; border: 1px solid var(--primary-gold); padding: 0.5rem 1rem;">View
+                                Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Yacht 2 (Placeholder) -->
+                <div class="yacht-card reveal">
+                    <div class="yacht-thumb">
+                        <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=800&q=80"
+                            alt="Titanium Star">
+                    </div>
+                    <div class="yacht-info">
+                        <h3>Titanium Star</h3>
+                        <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;">55m | Lurssen |
+                            2021</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span class="yacht-price">€42,000,000</span>
+                            <a href="yacht-details.html" class="btn-outline"
+                                style="font-size: 0.75rem; border: 1px solid var(--primary-gold); padding: 0.5rem 1rem;">View
+                                Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Yacht 3 (Placeholder) -->
+                <div class="yacht-card reveal">
+                    <div class="yacht-thumb">
+                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5947?auto=format&fit=crop&w=800&q=80"
+                            alt="Midnight Pearl">
+                    </div>
+                    <div class="yacht-info">
+                        <h3>Midnight Pearl</h3>
+                        <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;">48m | Heesen |
+                            2022</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span class="yacht-price">€28,500,000</span>
+                            <a href="yacht-details.html" class="btn-outline"
+                                style="font-size: 0.75rem; border: 1px solid var(--primary-gold); padding: 0.5rem 1rem;">View
+                                Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <img src="logo.svg" alt="Ocean Elite Logo" class="logo">
+                    <p style="opacity: 0.7; font-size: 0.875rem; line-height: 1.8;">Elevating the yachting experience
+                        with unparalleled expertise and a global collection of world-class vessels. Your journey begins
+                        here.</p>
+                    <div class="social-links" style="margin-top: 2rem; display: flex; gap: 1rem;">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 2rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em;">
+                        Quick Links</h4>
+                    <ul
+                        style="list-style: none; display: flex; flex-direction: column; gap: 1rem; font-size: 0.875rem; opacity: 0.8;">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="yachts.html" class="footer-link">Yachts</a></li>
+                        <li><a href="charter.html" class="footer-link">Charter</a></li>
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="blog.html" class="footer-link">Blog & News</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 2rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em;">
+                        Company</h4>
+                    <ul
+                        style="list-style: none; display: flex; flex-direction: column; gap: 1rem; font-size: 0.875rem; opacity: 0.8;">
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                        <li><a href="pricing.html" class="footer-link">Pricing Plans</a></li>
+                        <li><a href="login.html" class="footer-link">Member Login</a></li>
+                        <li><a href="register.html" class="footer-link">Register</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 2rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em;">
+                        Newsletter</h4>
+                    <p style="opacity: 0.7; font-size: 0.875rem; margin-bottom: 1.5rem;">Subscribe to receive curated
+                        yacht listings and market insights.</p>
+                    <div
+                        style="display: flex; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); padding: 0.25rem;">
+                        <input type="email" placeholder="Your Email"
+                            style="background: transparent; border: none; padding: 0.75rem; color: white; width: 100%; font-family: inherit;">
+                        <button class="btn btn-primary" style="padding: 0 1.5rem; font-size: 0.75rem;">Join</button>
+                    </div>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; opacity: 0.5;">
+                <p>&copy; 2026 Coastal Elite Luxury Yacht Brokerage. All rights reserved.</p>
+                <div style="display: flex; gap: 2rem;">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main Scripts -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
