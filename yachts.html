@@ -21,13 +21,37 @@
             </a>
 
             <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="home-2.html" class="nav-link">Home 2</a>
-                <a href="yachts.html" class="nav-link">Yachts</a>
-                <a href="charter.html" class="nav-link">Charter</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="blog.html" class="nav-link">Blog</a>
-                <a href="contact.html" class="nav-link">Contact</a>
+                <div class="nav-item-dropdown">
+                    <a href="index.html" class="nav-link">Home <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="index.html" class="dropdown-link">Home 1</a>
+                        <a href="home-2.html" class="dropdown-link">Home 2</a>
+                    </div>
+                </div>
+                <div class="nav-item-dropdown">
+                    <a href="yachts.html" class="nav-link">Fleet <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="yachts.html" class="dropdown-link">Yachts</a>
+                        <a href="charter.html" class="dropdown-link">Charter</a>
+                        <a href="pricing.html" class="dropdown-link">Pricing</a>
+                    </div>
+                </div>
+                <div class="nav-item-dropdown">
+                    <a href="about.html" class="nav-link">Discovery <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="about.html" class="dropdown-link">About Us</a>
+                        <a href="blog.html" class="dropdown-link">Blog & News</a>
+                        <a href="contact.html" class="dropdown-link">Contact</a>
+                    </div>
+                </div>
+                <div class="mobile-nav-actions">
+                    <div class="mobile-action-group">
+                        <button id="theme-toggle-mobile" class="btn-icon" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+                        <button id="rtl-toggle-mobile" class="btn-icon" title="Toggle RTL"><i class="fas fa-language"></i></button>
+                    </div>
+                    <a href="login.html" class="btn btn-outline" style="width: 100%; margin-bottom: 0.5rem;">Login</a>
+                    <a href="dashboard.html" class="btn btn-primary" style="width: 100%;">Dashboard</a>
+                </div>
             </nav>
 
             <div class="nav-actions">
@@ -37,134 +61,140 @@
                 <button id="rtl-toggle" class="btn-icon" title="Toggle RTL">
                     <i class="fas fa-language"></i>
                 </button>
-                <a href="login.html" class="nav-link">Login</a>
-                <a href="yachts.html" class="btn btn-primary">Book Now</a>
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="dashboard.html" class="btn btn-primary">Dashboard</a>
+                <button class="btn-menu" id="mobile-menu-toggle" title="Toggle Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </header>
 
     <main style="padding-top: var(--header-height);">
+        <!-- Services Header -->
+        <section class="section-padding" style="background: var(--bg-light); border-bottom: 1px solid var(--border-color);">
+            <div class="container">
+                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                    <h1 class="reveal active" style="font-size: 3.5rem; margin-bottom: 1.5rem;">Our <span class="text-gold">Services</span></h1>
+                    <p style="font-size: 1.125rem; color: var(--text-muted);">From acquisition to ongoing management, Ocean Elite provides a seamless 360&deg; ecosystem for the world's most prestigious vessels.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
         <section class="section-padding">
             <div class="container">
-                <div style="display: flex; gap: 3rem; flex-wrap: wrap;">
-                    <!-- Sidebar Filters -->
-                    <aside style="flex: 0 0 300px;">
-                        <div style="background: var(--bg-light); padding: 2rem; position: sticky; top: 100px;">
-                            <h3 style="margin-bottom: 2rem; font-size: 1.25rem;">Filters</h3>
-
-                            <div style="margin-bottom: 1.5rem;">
-                                <label
-                                    style="display: block; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 0.5rem; font-weight: 600;">Price
-                                    Range</label>
-                                <input type="range" min="1000000" max="100000000"
-                                    style="width: 100%; accent-color: var(--primary-gold);">
-                                <div
-                                    style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-top: 0.5rem;">
-                                    <span>€1M</span>
-                                    <span>€100M+</span>
-                                </div>
-                            </div>
-
-                            <div style="margin-bottom: 1.5rem;">
-                                <label
-                                    style="display: block; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 0.5rem; font-weight: 600;">Length
-                                    (m)</label>
-                                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                                    <label><input type="checkbox"> 20m - 40m</label>
-                                    <label><input type="checkbox"> 40m - 60m</label>
-                                    <label><input type="checkbox"> 60m - 80m</label>
-                                    <label><input type="checkbox"> 80m+</label>
-                                </div>
-                            </div>
-
-                            <div style="margin-bottom: 1.5rem;">
-                                <label
-                                    style="display: block; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 0.5rem; font-weight: 600;">Yacht
-                                    Type</label>
-                                <select
-                                    style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); background: var(--bg-white); color: var(--text-dark);">
-                                    <option>All Types</option>
-                                    <option>Motor Yacht</option>
-                                    <option>Sailing Yacht</option>
-                                    <option>Catamaran</option>
-                                </select>
-                            </div>
-
-                            <button class="btn btn-primary" style="width: 100%;">Apply Filters</button>
+                <div class="grid-2xn" style="gap: 2.5rem;">
+                    <!-- 1. Yacht Sales -->
+                    <div class="yacht-card reveal active">
+                        <div class="yacht-thumb">
+                            <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=800&q=80" alt="Yacht Sales">
                         </div>
-                    </aside>
-
-                    <!-- Yacht Grid -->
-                    <div style="flex: 1;">
-                        <div
-                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                            <p style="font-size: 0.875rem; color: var(--text-muted);">Showing 1-9 of 24 Yachts</p>
-                            <select
-                                style="padding: 0.5rem; border: 1px solid var(--border-color); background: transparent; font-family: inherit;">
-                                <option>Sort by: Newest</option>
-                                <option>Price: Low to High</option>
-                                <option>Price: High to Low</option>
-                            </select>
+                        <div class="yacht-info">
+                            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary-gold); font-weight: 700; display: block; margin-bottom: 0.5rem;">Brokerage</span>
+                            <h3 style="margin-bottom: 1rem;">Yacht Sales</h3>
+                            <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.5rem;">Navigating the global market to secure the best value for your acquisition or divestment.</p>
+                            <a href="yacht-details.html" class="btn-outline" style="font-size: 0.75rem; padding: 0.6rem 1.2rem; display: inline-block;">Explore Service</a>
                         </div>
-
-                        <div
-                            style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;">
-                            <!-- Repeating yacht card structure -->
-                            <div class="yacht-card reveal active">
-                                <div class="yacht-thumb">
-                                    <img src="assets/images/featured_yacht_1.png" alt="Yacht">
-                                </div>
-                                <div class="yacht-info">
-                                    <h3>Golden Horizon</h3>
-                                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;">72m |
-                                        Feadship | 2024</p>
-                                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                                        <span class="yacht-price">€89,000,000</span>
-                                        <a href="yacht-details.html" class="btn-outline"
-                                            style="font-size: 0.75rem; padding: 0.5rem 1rem;">Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Mock cards -->
-                            <div class="yacht-card reveal active">
-                                <div class="yacht-thumb">
-                                    <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=800&q=80"
-                                        alt="Yacht">
-                                </div>
-                                <div class="yacht-info">
-                                    <h3>Ocean Pearl</h3>
-                                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;">50m |
-                                        Princess | 2022</p>
-                                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                                        <span class="yacht-price">€24,500,000</span>
-                                        <a href="yacht-details.html" class="btn-outline"
-                                            style="font-size: 0.75rem; padding: 0.5rem 1rem;">Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="yacht-card reveal active">
-                                <div class="yacht-thumb">
-                                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5947?auto=format&fit=crop&w=800&q=80"
-                                        alt="Yacht">
-                                </div>
-                                <div class="yacht-info">
-                                    <h3>Royal Wave</h3>
-                                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;">45m |
-                                        Sunseeker | 2023</p>
-                                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                                        <span class="yacht-price">€18,000,000</span>
-                                        <a href="yacht-details.html" class="btn-outline"
-                                            style="font-size: 0.75rem; padding: 0.5rem 1rem;">Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Pagination -->
+                    </div>
+                    <!-- 2. Luxury Charters -->
+                    <div class="yacht-card reveal active">
+                        <div class="yacht-thumb">
+                            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5947?auto=format&fit=crop&w=800&q=80" alt="Yacht Charter">
+                        </div>
+                        <div class="yacht-info">
+                            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary-gold); font-weight: 700; display: block; margin-bottom: 0.5rem;">Experience</span>
+                            <h3 style="margin-bottom: 1rem;">Luxury Charters</h3>
+                            <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.5rem;">Curating bespoke maritime adventures with unparalleled service and exclusive itineraries.</p>
+                            <a href="yacht-details.html" class="btn-outline" style="font-size: 0.75rem; padding: 0.6rem 1.2rem; display: inline-block;">Explore Service</a>
+                        </div>
+                    </div>
+                    <!-- 3. New Build Supervision -->
+                    <div class="yacht-card reveal active">
+                        <div class="yacht-thumb">
+                            <img src="https://images.unsplash.com/photo-1605281317010-fe5ffe798156?auto=format&fit=crop&w=800&q=80" alt="New Build">
+                        </div>
+                        <div class="yacht-info">
+                            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary-gold); font-weight: 700; display: block; margin-bottom: 0.5rem;">Construction</span>
+                            <h3 style="margin-bottom: 1rem;">New Build Supervision</h3>
+                            <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.5rem;">Acting as your technical eyes and ears at the world's leading shipyards from keel to launch.</p>
+                            <a href="yacht-details.html" class="btn-outline" style="font-size: 0.75rem; padding: 0.6rem 1.2rem; display: inline-block;">Explore Service</a>
+                        </div>
+                    </div>
+                    <!-- 4. Fleet Management -->
+                    <div class="yacht-card reveal active">
+                        <div class="yacht-thumb">
+                            <img src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=800&q=80" alt="Management">
+                        </div>
+                        <div class="yacht-info">
+                            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary-gold); font-weight: 700; display: block; margin-bottom: 0.5rem;">Operations</span>
+                            <h3 style="margin-bottom: 1rem;">Full Management</h3>
+                            <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.5rem;">Comprehensive white-glove stewardship covering technical maintenance, crew payroll, and global ISM/ISPS compliance.</p>
+                            <a href="yacht-details.html" class="btn-outline" style="font-size: 0.75rem; padding: 0.6rem 1.2rem; display: inline-block;">Explore Service</a>
+                        </div>
+                    </div>
+                    <!-- 5. Refit & Repair -->
+                    <div class="yacht-card reveal active">
+                        <div class="yacht-thumb">
+                            <img src="https://images.unsplash.com/photo-1621293954908-907159247fc8?auto=format&fit=crop&w=800&q=80" alt="Refit">
+                        </div>
+                        <div class="yacht-info">
+                            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary-gold); font-weight: 700; display: block; margin-bottom: 0.5rem;">Maintenance</span>
+                            <h3 style="margin-bottom: 1rem;">Refit & Repair</h3>
+                            <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.5rem;">Managing lifecycle maintenance and major upgrades to preserve the value of your asset.</p>
+                            <a href="yacht-details.html" class="btn-outline" style="font-size: 0.75rem; padding: 0.6rem 1.2rem; display: inline-block;">Explore Service</a>
+                        </div>
+                    </div>
+                    <!-- 6. Crew Services -->
+                    <div class="yacht-card reveal active">
+                        <div class="yacht-thumb">
+                            <img src="https://images.unsplash.com/photo-1520440229334-962aee18cda3?auto=format&fit=crop&w=800&q=80" alt="Crew">
+                        </div>
+                        <div class="yacht-info">
+                            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary-gold); font-weight: 700; display: block; margin-bottom: 0.5rem;">Staffing</span>
+                            <h3 style="margin-bottom: 1rem;">Crew Placement</h3>
+                            <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.5rem;">Connecting your vessel with world-class maritime professionals and hospitality experts.</p>
+                            <a href="yacht-details.html" class="btn-outline" style="font-size: 0.75rem; padding: 0.6rem 1.2rem; display: inline-block;">Explore Service</a>
+                        </div>
+                    </div>
+                    <!-- 7. Charter Marketing -->
+                    <div class="yacht-card reveal active">
+                        <div class="yacht-thumb">
+                            <img src="https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=800&q=80" alt="Marketing">
+                        </div>
+                        <div class="yacht-info">
+                            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary-gold); font-weight: 700; display: block; margin-bottom: 0.5rem;">Revenue</span>
+                            <h3 style="margin-bottom: 1rem;">Charter Marketing</h3>
+                            <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.5rem;">Maximizing your yacht's commercial potential through strategic global marketing campaigns.</p>
+                            <a href="yacht-details.html" class="btn-outline" style="font-size: 0.75rem; padding: 0.6rem 1.2rem; display: inline-block;">Explore Service</a>
+                        </div>
+                    </div>
+                    <!-- 8. Finance & Insurance -->
+                    <div class="yacht-card reveal active">
+                        <div class="yacht-thumb">
+                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80" alt="Finance">
+                        </div>
+                        <div class="yacht-info">
+                            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary-gold); font-weight: 700; display: block; margin-bottom: 0.5rem;">Legal</span>
+                            <h3 style="margin-bottom: 1rem;">Finance & Insurance</h3>
+                            <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.5rem;">Bespoke financial solutions and comprehensive risk management for peace of mind at sea.</p>
+                            <a href="yacht-details.html" class="btn-outline" style="font-size: 0.75rem; padding: 0.6rem 1.2rem; display: inline-block;">Explore Service</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Brochure CTA -->
+        <section class="section-padding" style="background: var(--bg-dark); color: white;">
+            <div class="container" style="text-align: center;">
+                <h2 class="reveal" style="margin-bottom: 2rem;">Full Service <span class="text-gold">Catalog</span></h2>
+                <p class="reveal" style="max-width: 600px; margin: 0 auto 3rem; opacity: 0.7;">Download our comprehensive 2026 Services Brochure for a deep dive into our global maritime solutions and fee structures.</p>
+                <a href="#" class="btn btn-primary reveal"><i class="fas fa-file-pdf" style="margin-right: 10px;"></i> Download Brochure</a>
+            </div>
+        </section>
     </main>
+  </main>
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">

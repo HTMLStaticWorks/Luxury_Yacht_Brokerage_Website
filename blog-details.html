@@ -20,13 +20,37 @@
             </a>
 
             <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="home-2.html" class="nav-link">Home 2</a>
-                <a href="yachts.html" class="nav-link">Yachts</a>
-                <a href="charter.html" class="nav-link">Charter</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="blog.html" class="nav-link">Blog</a>
-                <a href="contact.html" class="nav-link">Contact</a>
+                <div class="nav-item-dropdown">
+                    <a href="index.html" class="nav-link">Home <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="index.html" class="dropdown-link">Home 1</a>
+                        <a href="home-2.html" class="dropdown-link">Home 2</a>
+                    </div>
+                </div>
+                <div class="nav-item-dropdown">
+                    <a href="yachts.html" class="nav-link">Fleet <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="yachts.html" class="dropdown-link">Yachts</a>
+                        <a href="charter.html" class="dropdown-link">Charter</a>
+                        <a href="pricing.html" class="dropdown-link">Pricing</a>
+                    </div>
+                </div>
+                <div class="nav-item-dropdown">
+                    <a href="about.html" class="nav-link">Discovery <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="about.html" class="dropdown-link">About Us</a>
+                        <a href="blog.html" class="dropdown-link">Blog & News</a>
+                        <a href="contact.html" class="dropdown-link">Contact</a>
+                    </div>
+                </div>
+                <div class="mobile-nav-actions">
+                    <div class="mobile-action-group">
+                        <button id="theme-toggle-mobile" class="btn-icon" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+                        <button id="rtl-toggle-mobile" class="btn-icon" title="Toggle RTL"><i class="fas fa-language"></i></button>
+                    </div>
+                    <a href="login.html" class="btn btn-outline" style="width: 100%; margin-bottom: 0.5rem;">Login</a>
+                    <a href="dashboard.html" class="btn btn-primary" style="width: 100%;">Dashboard</a>
+                </div>
             </nav>
 
             <div class="nav-actions">
@@ -36,8 +60,11 @@
                 <button id="rtl-toggle" class="btn-icon" title="Toggle RTL">
                     <i class="fas fa-language"></i>
                 </button>
-                <a href="login.html" class="nav-link">Login</a>
-                <a href="yachts.html" class="btn btn-primary">Book Now</a>
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="dashboard.html" class="btn btn-primary">Dashboard</a>
+                <button class="btn-menu" id="mobile-menu-toggle" title="Toggle Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </header>
@@ -144,7 +171,7 @@
             </div>
             <div
                 style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; opacity: 0.5;">
-                <p>&copy; 2026 Coastal Elite Luxury Yacht Brokerage. All rights reserved.</p>
+                <p>&copy; 2026 Ocean Elite Luxury Yacht Brokerage. All rights reserved.</p>
                 <div style="display: flex; gap: 2rem;">
                     <a href="#" class="footer-link">Privacy Policy</a>
                     <a href="#" class="footer-link">Terms of Service</a>

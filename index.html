@@ -24,13 +24,37 @@
             </a>
 
             <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="home-2.html" class="nav-link">Home 2</a>
-                <a href="yachts.html" class="nav-link">Yachts</a>
-                <a href="charter.html" class="nav-link">Charter</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="blog.html" class="nav-link">Blog</a>
-                <a href="contact.html" class="nav-link">Contact</a>
+                <div class="nav-item-dropdown">
+                    <a href="index.html" class="nav-link">Home <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="index.html" class="dropdown-link">Home 1</a>
+                        <a href="home-2.html" class="dropdown-link">Home 2</a>
+                    </div>
+                </div>
+                <div class="nav-item-dropdown">
+                    <a href="yachts.html" class="nav-link">Fleet <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="yachts.html" class="dropdown-link">Yachts</a>
+                        <a href="charter.html" class="dropdown-link">Charter</a>
+                        <a href="pricing.html" class="dropdown-link">Pricing</a>
+                    </div>
+                </div>
+                <div class="nav-item-dropdown">
+                    <a href="about.html" class="nav-link">Discovery <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="about.html" class="dropdown-link">About Us</a>
+                        <a href="blog.html" class="dropdown-link">Blog & News</a>
+                        <a href="contact.html" class="dropdown-link">Contact</a>
+                    </div>
+                </div>
+                <div class="mobile-nav-actions">
+                    <div class="mobile-action-group">
+                        <button id="theme-toggle-mobile" class="btn-icon" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+                        <button id="rtl-toggle-mobile" class="btn-icon" title="Toggle RTL"><i class="fas fa-language"></i></button>
+                    </div>
+                    <a href="login.html" class="btn btn-outline" style="width: 100%; margin-bottom: 0.5rem;">Login</a>
+                    <a href="dashboard.html" class="btn btn-primary" style="width: 100%;">Dashboard</a>
+                </div>
             </nav>
 
             <div class="nav-actions">
@@ -40,8 +64,11 @@
                 <button id="rtl-toggle" class="btn-icon" title="Toggle RTL">
                     <i class="fas fa-language"></i>
                 </button>
-                <a href="login.html" class="nav-link">Login</a>
-                <a href="yachts.html" class="btn btn-primary">Book Now</a>
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="dashboard.html" class="btn btn-primary">Dashboard</a>
+                <button class="btn-menu" id="mobile-menu-toggle" title="Toggle Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </header>
@@ -93,6 +120,38 @@
         </div>
     </section>
 
+    <!-- Trust Indicators -->
+    <section class="section-padding" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="grid-2xn reveal active" style="gap: 3rem; text-align: center;">
+                <div class="reveal active">
+                    <i class="fas fa-certificate text-gold" style="font-size: 2.5rem; margin-bottom: 1.5rem;"></i>
+                    <h3 style="margin-bottom: 1rem;">Certified Brokerage</h3>
+                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">Licensed members of MYBA & IYBA global yachting associations, ensuring ethical standards.</p>
+                    <a href="about.html" class="text-gold" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Our Credentials <i class="fas fa-chevron-right"></i></a>
+                </div>
+                <div class="reveal active">
+                    <i class="fas fa-anchor text-gold" style="font-size: 2.5rem; margin-bottom: 1.5rem;"></i>
+                    <h3 style="margin-bottom: 1rem;">25+ Years Experience</h3>
+                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">Navigating the complexities of luxury yachting since 2001 with over 500 successful closures.</p>
+                    <a href="about.html" class="text-gold" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Our History <i class="fas fa-chevron-right"></i></a>
+                </div>
+                <div class="reveal active">
+                    <i class="fas fa-globe text-gold" style="font-size: 2.5rem; margin-bottom: 1.5rem;"></i>
+                    <h3 style="margin-bottom: 1rem;">Global Network</h3>
+                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">Strategic permanent offices in Monaco, Fort Lauderdale, Dubai, and Singapore.</p>
+                    <a href="contact.html" class="text-gold" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Global Offices <i class="fas fa-chevron-right"></i></a>
+                </div>
+                <div class="reveal active">
+                    <i class="fas fa-shield-alt text-gold" style="font-size: 2.5rem; margin-bottom: 1.5rem;"></i>
+                    <h3 style="margin-bottom: 1rem;">Secure Transactions</h3>
+                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">Rigorous due diligence and multi-currency escrow management services for absolute peace of mind.</p>
+                    <a href="pricing.html" class="text-gold" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Legal Support <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Featured Yachts -->
     <section class="section-padding">
         <div class="container">
@@ -101,7 +160,7 @@
                 <div style="width: 60px; height: 2px; background: var(--primary-gold); margin: 1.5rem auto;"></div>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+            <div class="grid-2xn" style="gap: 2rem;">
                 <!-- Yacht 1 -->
                 <div class="yacht-card reveal">
                     <div class="yacht-thumb">
@@ -154,6 +213,185 @@
                                 Details</a>
                         </div>
                     </div>
+                </div>
+                <!-- Yacht 4 -->
+                <div class="yacht-card reveal">
+                    <div class="yacht-thumb">
+                        <img src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=800&q=80"
+                            alt="Silver Sea">
+                    </div>
+                    <div class="yacht-info">
+                        <h3>Silver Sea</h3>
+                        <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;">50m | Feadship |
+                            2024</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span class="yacht-price">€32,000,000</span>
+                            <a href="yacht-details.html" class="btn-outline"
+                                style="font-size: 0.75rem; border: 1px solid var(--primary-gold); padding: 0.5rem 1rem;">View
+                                Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="yachts.html" class="btn btn-outline reveal">View Entire Collection</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability & Innovation -->
+    <section class="section-padding" style="background: var(--bg-light); border-top: 1px solid var(--border-color);">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;">
+                <div class="reveal">
+                    <span style="text-transform: uppercase; color: var(--primary-gold); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.2em;">Legacy of Innovation</span>
+                    <h2 style="font-size: 3rem; margin: 1.5rem 0;">Sustainable <span class="text-gold">Excellence</span></h2>
+                    <p style="margin-bottom: 2rem; opacity: 0.8; font-size: 1.1rem;">Ocean Elite is at the forefront of the green maritime revolution. We specialize in the acquisition and build management of hybrid-electric vessels and sustainable shipyard practices.</p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem;">
+                        <div style="padding: 1.5rem; background: var(--bg-white); border-top: 3px solid var(--primary-gold); box-shadow: var(--shadow);">
+                            <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem; letter-spacing: 0.05em;">Hybrid Propulsion</h4>
+                            <p style="font-size: 0.75rem; opacity: 0.7;">Integrating silent, zero-emission hydrogen and battery technology.</p>
+                        </div>
+                        <div style="padding: 1.5rem; background: var(--bg-white); border-top: 3px solid var(--primary-gold); box-shadow: var(--shadow);">
+                            <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem; letter-spacing: 0.05em;">Ocean Conservation</h4>
+                            <p style="font-size: 0.75rem; opacity: 0.7;">Partnering with Blue Marine Foundation for sustainable yachting.</p>
+                        </div>
+                    </div>
+                    
+                    <a href="about.html" class="btn btn-primary">Our Green Initiative</a>
+                </div>
+                <div class="reveal" style="position: relative;">
+                    <img src="https://images.unsplash.com/photo-1621293954908-907159247fc8?auto=format&fit=crop&w=800&q=80" alt="Green Yachting" style="box-shadow: 30px 30px 0 var(--primary-gold);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Service Overview -->
+    <section class="section-padding" style="background: var(--bg-dark); color: white;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 class="reveal">Our Core <span class="text-gold">Expertise</span></h2>
+                <div style="width: 60px; height: 2px; background: var(--primary-gold); margin: 1.5rem auto;"></div>
+            </div>
+            <div class="grid-2xn" style="gap: 2rem;">
+                <div class="reveal" style="background: rgba(255,255,255,0.05); padding: 2.5rem; border: 1px solid rgba(255,255,255,0.1);">
+                    <h3 style="margin-bottom: 1rem; color: var(--primary-gold-hover);">Yacht Sales</h3>
+                    <p style="font-size: 0.875rem; opacity: 0.7; margin-bottom: 1.5rem;">Expert guidance for buying and selling world-class vessels with complete market transparency.</p>
+                    <a href="yachts.html" class="text-gold" style="font-size: 0.75rem; text-transform: uppercase; font-weight: 600;">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="reveal" style="background: rgba(255,255,255,0.05); padding: 2.5rem; border: 1px solid rgba(255,255,255,0.1);">
+                    <h3 style="margin-bottom: 1rem; color: var(--primary-gold-hover);">Luxury Charter</h3>
+                    <p style="font-size: 0.875rem; opacity: 0.7; margin-bottom: 1.5rem;">Bespoke itineraries and exceptional service on the world's most exclusive charter yachts.</p>
+                    <a href="charter.html" class="text-gold" style="font-size: 0.75rem; text-transform: uppercase; font-weight: 600;">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="reveal" style="background: rgba(255,255,255,0.05); padding: 2.5rem; border: 1px solid rgba(255,255,255,0.1);">
+                    <h3 style="margin-bottom: 1rem; color: var(--primary-gold-hover);">Management</h3>
+                    <p style="font-size: 0.875rem; opacity: 0.7; margin-bottom: 1.5rem;">Technical, operational, and financial management to ensure your yacht performs at its peak.</p>
+                    <a href="yachts.html" class="text-gold" style="font-size: 0.75rem; text-transform: uppercase; font-weight: 600;">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="reveal" style="background: rgba(255,255,255,0.05); padding: 2.5rem; border: 1px solid rgba(255,255,255,0.1);">
+                    <h3 style="margin-bottom: 1rem; color: var(--primary-gold-hover);">Refit & Build</h3>
+                    <p style="font-size: 0.875rem; opacity: 0.7; margin-bottom: 1.5rem;">Project management for new builds and major refits at the world's leading shipyards.</p>
+                    <a href="yachts.html" class="text-gold" style="font-size: 0.75rem; text-transform: uppercase; font-weight: 600;">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process -->
+    <section class="section-padding">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 class="reveal">The Ocean Elite <span class="text-gold">Journey</span></h2>
+                <div style="width: 60px; height: 2px; background: var(--primary-gold); margin: 1.5rem auto;"></div>
+            </div>
+            <div class="grid-2xn reveal" style="gap: 1rem; position: relative;">
+                <div class="reveal" style="text-align: center; padding: 2rem;">
+                    <div style="width: 60px; height: 60px; background: var(--primary-gold); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-weight: 700; font-size: 1.25rem;">1</div>
+                    <h3>Consultation</h3>
+                    <p style="font-size: 0.813rem; color: var(--text-muted);">Defining your vision and requirements.</p>
+                </div>
+                <div class="reveal" style="text-align: center; padding: 2rem;">
+                    <div style="width: 60px; height: 60px; background: var(--primary-gold); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-weight: 700; font-size: 1.25rem;">2</div>
+                    <h3>Selection</h3>
+                    <p style="font-size: 0.813rem; color: var(--text-muted);">Curating the finest options from our global network.</p>
+                </div>
+                <div class="reveal" style="text-align: center; padding: 2rem;">
+                    <div style="width: 60px; height: 60px; background: var(--primary-gold); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-weight: 700; font-size: 1.25rem;">3</div>
+                    <h3>Acquisition</h3>
+                    <p style="font-size: 0.813rem; color: var(--text-muted);">Expert negotiation and due diligence.</p>
+                </div>
+                <div class="reveal" style="text-align: center; padding: 2rem;">
+                    <div style="width: 60px; height: 60px; background: var(--primary-gold); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-weight: 700; font-size: 1.25rem;">4</div>
+                    <h3>Voyage</h3>
+                    <p style="font-size: 0.813rem; color: var(--text-muted);">Handover and ongoing support for your journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section-padding" style="background: var(--bg-light);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 class="reveal">Client <span class="text-gold">Voices</span></h2>
+                <div style="width: 60px; height: 2px; background: var(--primary-gold); margin: 1.5rem auto;"></div>
+            </div>
+            <div class="grid-2xn" style="gap: 2rem;">
+                <div class="reveal" style="background: white; padding: 3rem; box-shadow: var(--shadow); border-left: 4px solid var(--primary-gold);">
+                    <p style="font-style: italic; margin-bottom: 2rem; color: var(--text-dark);">"The acquisition of our custom superyacht was handled with surgical precision. Ocean Elite's network is truly unparalleled."</p>
+                    <h4 style="font-size: 0.875rem;">James Henderson</h4>
+                    <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Private Owner</span>
+                </div>
+                <div class="reveal" style="background: white; padding: 3rem; box-shadow: var(--shadow); border-left: 4px solid var(--primary-gold);">
+                    <p style="font-style: italic; margin-bottom: 2rem; color: var(--text-dark);">"Our summer charter in the Mediterranean was flawless. Every detail from provisioning to the itinerary was curated to perfection."</p>
+                    <h4 style="font-size: 0.875rem;">Elena Rodriguez</h4>
+                    <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Charter Client</span>
+                </div>
+                <div class="reveal" style="background: white; padding: 3rem; box-shadow: var(--shadow); border-left: 4px solid var(--primary-gold);">
+                    <p style="font-style: italic; margin-bottom: 2rem; color: var(--text-dark);">"Ocean Elite transforms the complexity of yacht management into a seamless experience. Their technical expertise is world-class."</p>
+                    <h4 style="font-size: 0.875rem;">Cap. Marc Laurent</h4>
+                    <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Fleet Manager</span>
+                </div>
+                <div class="reveal" style="background: white; padding: 3rem; box-shadow: var(--shadow); border-left: 4px solid var(--primary-gold);">
+                    <p style="font-style: italic; margin-bottom: 2rem; color: var(--text-dark);">"Exceptional attention to detail and a truly global reach. They made our transatlantic delivery feel effortless."</p>
+                    <h4 style="font-size: 0.875rem;">Robert Chang</h4>
+                    <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Private Owner</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 class="reveal">Frequently Asked <span class="text-gold">Questions</span></h2>
+                <div style="width: 60px; height: 2px; background: var(--primary-gold); margin: 1.5rem auto;"></div>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="reveal" style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                    <h3 style="font-size: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">What are the primary costs of yacht ownership? <i class="fas fa-plus" style="font-size: 0.8rem;"></i></h3>
+                    <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-muted); display: none;">Ownership costs typically include crew salaries, dockage, insurance, maintenance, and fuel, usually totaling 10% of the purchase price annually.</p>
+                </div>
+                <div class="reveal" style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                    <h3 style="font-size: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">How long does the yacht selling process take? <i class="fas fa-plus" style="font-size: 0.8rem;"></i></h3>
+                    <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-muted); display: none;">Depending on market conditions and price, yacht sales can take anywhere from 6 to 18 months. Our marketing strategy aims to reduce this time.</p>
+                </div>
+                <div class="reveal" style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                    <h3 style="font-size: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">Can I charter my yacht to offset costs? <i class="fas fa-plus" style="font-size: 0.8rem;"></i></h3>
+                    <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-muted); display: none;">Yes, many owners place their yachts in our charter management program to generate revenue and offset operational expenses.</p>
+                </div>
+                <div class="reveal" style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                    <h3 style="font-size: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">What is the difference between a motor and sailing yacht? <i class="fas fa-plus" style="font-size: 0.8rem;"></i></h3>
+                    <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-muted); display: none;">Motor yachts focus on speed, volume, and luxury amenities, while sailing yachts offer a more traditional, engaged nautical experience.</p>
+                </div>
+                <div class="reveal" style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                    <h3 style="font-size: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">Does Ocean Elite handle international deliveries? <i class="fas fa-plus" style="font-size: 0.8rem;"></i></h3>
+                    <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-muted); display: none;">Yes, we coordinate global logistics, including transatlantic shipping and professional delivery crews.</p>
                 </div>
             </div>
         </div>
@@ -212,7 +450,7 @@
             </div>
             <div
                 style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; opacity: 0.5;">
-                <p>&copy; 2026 Coastal Elite Luxury Yacht Brokerage. All rights reserved.</p>
+                <p>&copy; 2026 Ocean Elite Luxury Yacht Brokerage. All rights reserved.</p>
                 <div style="display: flex; gap: 2rem;">
                     <a href="#" class="footer-link">Privacy Policy</a>
                     <a href="#" class="footer-link">Terms of Service</a>
