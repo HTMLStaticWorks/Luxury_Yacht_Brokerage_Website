@@ -78,17 +78,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. Mobile Menu Toggle
     const menuToggle = document.getElementById('mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const dashboardSidebar = document.getElementById('dashboard-sidebar');
+    const sidebarBackdrop = document.getElementById('sidebar-backdrop');
 
     if (menuToggle && navMenu) {
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+            if (sidebarToggle) {
+                sidebarToggle.classList.toggle('hidden', navMenu.classList.contains('active'));
+            }
             const icon = menuToggle.querySelector('i');
-            if (icon.classList.contains('fa-bars')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+            if (icon) {
+                if (icon.classList.contains('fa-bars')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
             }
         });
     }
@@ -97,26 +105,84 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdowns = document.querySelectorAll('.nav-item-dropdown');
     dropdowns.forEach(dropdown => {
         const link = dropdown.querySelector('.nav-link');
-        link.addEventListener('click', (e) => {
-            if (window.innerWidth <= 1000) {
-                e.preventDefault();
-                dropdown.classList.toggle('active');
-            }
-        });
+        if (link) {
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 1100) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            });
+        }
     });
 
     // Close mobile menu on link click
     const navLinks = document.querySelectorAll('.nav-link:not(.nav-item-dropdown > .nav-link), .dropdown-link');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            if (window.innerWidth <= 1000) {
+            if (window.innerWidth <= 1100 && navMenu) {
                 navMenu.classList.remove('active');
-                const icon = menuToggle.querySelector('i');
-                if (icon) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
+                if (sidebarToggle) {
+                    sidebarToggle.classList.remove('hidden');
+                }
+                if (menuToggle) {
+                    const icon = menuToggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
                 }
             }
         });
     });
+
+    // 7. Dashboard Sidebar Toggle
+    if (sidebarToggle && dashboardSidebar && sidebarBackdrop) {
+        sidebarToggle.addEventListener('click', () => {
+            dashboardSidebar.classList.toggle('active');
+            sidebarBackdrop.classList.toggle('active');
+            sidebarToggle.classList.toggle('hidden', dashboardSidebar.classList.contains('active'));
+        });
+
+        sidebarBackdrop.addEventListener('click', () => {
+            dashboardSidebar.classList.remove('active');
+            sidebarBackdrop.classList.remove('active');
+            sidebarToggle.classList.remove('hidden');
+        });
+    }
+
+    // 8. Dynamic Dashboard Content Loading
+    const dashLinks = document.querySelectorAll('.dash-link[href^="#"]');
+    const sections = document.querySelectorAll('.dashboard-section');
+    const pageTitle = document.getElementById('dashboard-page-title');
+
+    if (dashLinks.length > 0 && sections.length > 0) {
+        dashLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                const targetId = link.getAttribute('href').substring(1);
+                
+                // Update active link
+                dashLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Update sections
+                sections.forEach(sec => sec.classList.remove('active'));
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) targetSection.classList.add('active');
+                
+                // Update title
+                if (pageTitle) {
+                    pageTitle.textContent = link.textContent.trim();
+                }
+
+                // Close sidebar on mobile after clicking
+                if (window.innerWidth <= 1100 && dashboardSidebar) {
+                    dashboardSidebar.classList.remove('active');
+                    sidebarBackdrop.classList.remove('active');
+                    sidebarToggle.classList.remove('hidden');
+                }
+            });
+        });
+    }
 });
