@@ -89,7 +89,7 @@
             <!-- Section: Overview -->
             <div id="overview" class="dashboard-section active">
                 <!-- Stats -->
-                <div
+                <div class="stats-grid"
                     style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
                     <div class="stat-card">
                         <p style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted);">Active
@@ -113,43 +113,42 @@
                 </div>
 
                 <!-- Table Section -->
-                <div style="background: var(--bg-white); padding: 2rem; box-shadow: var(--shadow);">
-                    <div
-                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <div class="table-card">
+                    <div class="table-card-header">
                         <h3>Recent Inquiries</h3>
                         <button class="btn btn-outline" style="font-size: 0.75rem;">View All</button>
                     </div>
-                    <table style="width: 100%; border-collapse: collapse; text-align: left;">
-                        <thead style="background: var(--bg-light);">
-                            <tr>
-                                <th style="padding: 1rem;">Client</th>
-                                <th style="padding: 1rem;">Yacht</th>
-                                <th style="padding: 1rem;">Date</th>
-                                <th style="padding: 1rem;">Status</th>
-                                <th style="padding: 1rem;">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-bottom: 1px solid var(--border-color);">
-                                <td style="padding: 1rem;">John Miller</td>
-                                <td style="padding: 1rem;">Azure Serenity</td>
-                                <td style="padding: 1rem;">Mar 25, 2026</td>
-                                <td style="padding: 1rem;"><span
-                                        style="color: #ecb22e; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Pending</span>
-                                </td>
-                                <td style="padding: 1rem;"><a href="#" class="text-gold">Reply</a></td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid var(--border-color);">
-                                <td style="padding: 1rem;">Sofia Rossi</td>
-                                <td style="padding: 1rem;">Midnight Pearl</td>
-                                <td style="padding: 1rem;">Mar 24, 2026</td>
-                                <td style="padding: 1rem;"><span
-                                        style="color: #2eb67d; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Responded</span>
-                                </td>
-                                <td style="padding: 1rem;"><a href="#" class="text-gold">View</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="dashboard-table">
+                            <thead>
+                                <tr>
+                                    <th>Client</th>
+                                    <th>Yacht</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Client">John Miller</td>
+                                    <td data-label="Yacht">Azure Serenity</td>
+                                    <td data-label="Date">Mar 25, 2026</td>
+                                    <td data-label="Status"><span class="status-badge pending">Pending</span>
+                                    </td>
+                                    <td data-label="Action"><a href="#" class="text-gold">Reply</a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Client">Sofia Rossi</td>
+                                    <td data-label="Yacht">Midnight Pearl</td>
+                                    <td data-label="Date">Mar 24, 2026</td>
+                                    <td data-label="Status"><span class="status-badge responded">Responded</span>
+                                    </td>
+                                    <td data-label="Action"><a href="#" class="text-gold">View</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
@@ -272,6 +271,160 @@
         [dir="rtl"] .sidebar-user-profile {
             flex-direction: row-reverse;
             text-align: right;
+        }
+
+        /* Responsive Stats Grid */
+        @media (max-width: 1050px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1rem !important;
+            }
+
+            .stat-card {
+                padding: 1.25rem !important;
+            }
+
+            .stat-card h2 {
+                font-size: 1.5rem !important;
+            }
+
+            .stat-card p {
+                font-size: 0.65rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                gap: 0.75rem !important;
+            }
+
+            .stat-card {
+                padding: 1rem !important;
+            }
+        }
+
+        /* Responsive Table Styles */
+        .table-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border-radius: 12px;
+        }
+
+        .table-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .dashboard-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            min-width: 600px;
+        }
+
+        .dashboard-table thead {
+            background: var(--bg-light);
+        }
+
+        .dashboard-table th,
+        .dashboard-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .status-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .status-badge.pending {
+            color: #ecb22e;
+        }
+
+        .status-badge.responded {
+            color: #2eb67d;
+        }
+
+        @media (max-width: 768px) {
+            .table-card {
+                padding: 1.25rem;
+            }
+
+            .table-card-header {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .dashboard-table {
+                min-width: 100%;
+            }
+
+            .dashboard-table thead {
+                display: none;
+            }
+
+            .dashboard-table tr {
+                display: block;
+                margin-bottom: 1.5rem;
+                background: var(--bg-light);
+                border-radius: 10px;
+                padding: 0.5rem;
+                border: 1px solid var(--border-color);
+            }
+
+            .dashboard-table td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.875rem 0.75rem;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                text-align: right;
+            }
+
+            .dashboard-table td:last-child {
+                border-bottom: none;
+            }
+
+            .dashboard-table td::before {
+                content: attr(data-label);
+                font-weight: 700;
+                text-transform: uppercase;
+                font-size: 0.65rem;
+                color: var(--text-muted);
+                text-align: left;
+            }
+        }
+
+        /* Prevent Horizontal Scroll */
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden !important;
+        }
+
+        main {
+            overflow-x: hidden !important;
+        }
+
+        @media (max-width: 600px) {
+            .dashboard-content {
+                padding: 1rem !important;
+            }
+
+            .dashboard-header {
+                padding: 0.5rem 1rem !important;
+            }
         }
     </style>
 </body>

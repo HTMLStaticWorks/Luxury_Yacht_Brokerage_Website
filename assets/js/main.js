@@ -50,10 +50,38 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('dir', newDir);
     };
 
-    if (rtlBtn) rtlBtn.addEventListener('click', toggleRTL);
     if (rtlBtnMobile) rtlBtnMobile.addEventListener('click', toggleRTL);
+    
+    // 3. Navigation Active State Logic
+    const handleNavigationActiveState = () => {
+        const path = window.location.pathname;
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (!href) return;
+            
+            // Remove active class first
+            link.classList.remove('active');
+            
+            // Highlight Fleet when on detail page or any fleet-related page
+            if (href === 'yachts.html' && (path.includes('yacht-details.html') || path.includes('yachts.html') || path.includes('charter.html') || path.includes('pricing.html'))) {
+                link.classList.add('active');
+            }
+            // Highlight Discovery
+            else if (href === 'about.html' && (path.includes('about.html') || path.includes('blog.html') || path.includes('contact.html'))) {
+                link.classList.add('active');
+            }
+            // Highlight Home
+            else if (href === 'index.html' && (path.endsWith('/') || path.includes('index.html') || path.includes('home-2.html'))) {
+                link.classList.add('active');
+            }
+        });
+    };
 
-    // 3. Sticky Header
+    handleNavigationActiveState();
+
+    // 4. Sticky Header
     const header = document.querySelector('header');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -185,4 +213,259 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // 9. Active Menu Highlighting
+    const highlightActiveMenu = () => {
+        const path = window.location.pathname;
+        const page = path.split("/").pop() || 'index.html';
+        
+        // Handle all nav links and dropdown links
+        const allLinks = document.querySelectorAll('.nav-link, .dropdown-link');
+        
+        allLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            
+            // Check if link matches current page
+            if (href === page || (page === 'index.html' && href === '/')) {
+                link.classList.add('active');
+                
+                // If it's a dropdown link, also highlight the parent nav-link
+                const dropdownMenu = link.closest('.dropdown-menu');
+                if (dropdownMenu) {
+                    const parentNavItem = dropdownMenu.closest('.nav-item-dropdown');
+                    if (parentNavItem) {
+                        const parentLink = parentNavItem.querySelector('.nav-link');
+                        if (parentLink) parentLink.classList.add('active');
+                    }
+                }
+            }
+        });
+    };
+
+    highlightActiveMenu();
+
+    // 10. Yacht Details Logic
+    const yachtDetailsPage = document.querySelector('.yacht-details-page');
+    if (yachtDetailsPage && window.yachtsData) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const yachtId = parseInt(urlParams.get('id')) || 1;
+        const yacht = window.yachtsData.find(y => y.id === yachtId) || window.yachtsData[0];
+
+        if (yacht) {
+            // Update Page Title
+            document.title = `${yacht.name} | Ocean Elite`;
+
+            // Update Breadcrumb
+            const breadcrumbCurrent = document.querySelector('.breadcrumb-current');
+            if (breadcrumbCurrent) breadcrumbCurrent.textContent = yacht.name;
+
+            // Update Header Info
+            const seriesEl = document.querySelector('.yacht-series');
+            const titleEl = document.querySelector('.yacht-title');
+            const descEl = document.querySelector('.yacht-description');
+            
+            if (seriesEl) seriesEl.textContent = yacht.series;
+            if (titleEl) {
+                const nameParts = yacht.name.split(' ');
+                if (nameParts.length > 1) {
+                    titleEl.innerHTML = `${nameParts[0]} <span class="text-gold">${nameParts.slice(1).join(' ')}</span>`;
+                } else {
+                    titleEl.textContent = yacht.name;
+                }
+            }
+            if (descEl) descEl.textContent = yacht.description;
+
+            // Update Sidebar Price
+            const priceEl = document.querySelector('.yacht-price-value');
+            if (priceEl) priceEl.textContent = yacht.price;
+
+            // Update Gallery (Simplified to 2 images)
+            const mainGallery = document.querySelector('.yacht-gallery-main');
+            const secondaryGallery = document.querySelector('.yacht-gallery-secondary');
+            
+            if (mainGallery) {
+                mainGallery.style.backgroundImage = `url('${yacht.images.hero}')`;
+            }
+
+            if (secondaryGallery) {
+                const galleryImg = yacht.images.gallery[0] || yacht.images.hero;
+                secondaryGallery.style.backgroundImage = `url('${galleryImg}')`;
+            }
+
+            // Update Amenities
+            const amenitiesGrid = document.querySelector('.amenities-grid');
+            if (amenitiesGrid) {
+                const icons = ['water', 'dumbbell', 'helicopter', 'wine-glass', 'film', 'spa', 'anchor', 'ship'];
+                amenitiesGrid.innerHTML = yacht.amenities.map((amenity, index) => `
+                    <div style="display: flex; align-items: center; gap: 1rem; font-size: 0.875rem;">
+                        <i class="fas fa-${icons[index % icons.length]} text-gold"></i> <span>${amenity}</span>
+                    </div>
+                `).join('');
+            }
+
+            // Update Specs
+            const specsTable = document.querySelector('.specs-table-body');
+            if (specsTable) {
+                specsTable.innerHTML = `
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 1.25rem 0; font-weight: 600; width: 40%; color: var(--primary-gold);">Builder / Model</td>
+                        <td style="padding: 1.25rem 0;">${yacht.builder} / ${yacht.model}</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 1.25rem 0; font-weight: 600;">Year of Build</td>
+                        <td style="padding: 1.25rem 0;">${yacht.year}</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 1.25rem 0; font-weight: 600;">Gross Tonnage</td>
+                        <td style="padding: 1.25rem 0;">${yacht.gt}</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 1.25rem 0; font-weight: 600;">Hull Material</td>
+                        <td style="padding: 1.25rem 0;">${yacht.hull}</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 1.25rem 0; font-weight: 600;">Staterooms</td>
+                        <td style="padding: 1.25rem 0;">${yacht.staterooms}</td>
+                    </tr>
+                `;
+            }
+        }
+    }
+
+    // 10b. Charter Details Logic
+    const charterDetailsPage = document.querySelector('.charter-details-page');
+    if (charterDetailsPage && window.charterData) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = parseInt(urlParams.get('id')) || 1;
+        const project = window.charterData.find(p => p.id === projectId) || window.charterData[0];
+
+        if (project) {
+            document.title = `${project.name} | Ocean Elite`;
+            const breadcrumbCurrent = document.querySelector('.breadcrumb-current');
+            if (breadcrumbCurrent) breadcrumbCurrent.textContent = project.name;
+
+            const typeEl = document.querySelector('.project-type');
+            const titleEl = document.querySelector('.project-title');
+            const descEl = document.querySelector('.project-description');
+            const detailTextEl = document.querySelector('.project-details-text');
+            
+            if (typeEl) typeEl.textContent = project.type;
+            if (titleEl) {
+                const nameParts = project.name.split(' ');
+                if (nameParts.length > 1) {
+                    titleEl.innerHTML = `${nameParts[0]} <span class="text-gold">${nameParts.slice(1).join(' ')}</span>`;
+                } else {
+                    titleEl.textContent = project.name;
+                }
+            }
+            if (descEl) descEl.textContent = project.description;
+            if (detailTextEl) detailTextEl.textContent = project.details;
+
+            const mainGallery = document.querySelector('.project-gallery-main');
+            const secondaryGallery = document.querySelector('.project-gallery-secondary');
+            
+            if (mainGallery) mainGallery.style.backgroundImage = `url('${project.images.hero}')`;
+            if (secondaryGallery) {
+                const galleryImg = project.images.gallery[0] || project.images.hero;
+                secondaryGallery.style.backgroundImage = `url('${galleryImg}')`;
+            }
+
+            const specVessel = document.querySelector('.spec-vessel');
+            const specYear = document.querySelector('.spec-year');
+            const specClient = document.querySelector('.spec-client');
+
+            if (specVessel) specVessel.textContent = project.vessel;
+            if (specYear) specYear.textContent = project.year;
+            if (specClient) specClient.textContent = project.client;
+        }
+    }
+
+
+    // 11. FAQ Accordion Logic
+    const faqItems = document.querySelectorAll('section[class*="section-padding"] .reveal h3');
+    faqItems.forEach(header => {
+        // Only target FAQ headers (they have a plus/minus icon)
+        const icon = header.querySelector('.fa-plus, .fa-minus');
+        if (icon) {
+            header.addEventListener('click', () => {
+                const answer = header.nextElementSibling;
+                const isExpanded = answer.style.display === 'block';
+                
+                // Toggle current item
+                answer.style.display = isExpanded ? 'none' : 'block';
+                
+                // Toggle icon
+                if (isExpanded) {
+                    icon.classList.remove('fa-minus');
+                    icon.classList.add('fa-plus');
+                    header.style.color = 'inherit';
+                } else {
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                    header.style.color = 'var(--primary-gold)';
+                }
+                
+                // Optional: Close other items (Accordion behavior)
+                faqItems.forEach(otherHeader => {
+                    if (otherHeader !== header) {
+                        const otherAnswer = otherHeader.nextElementSibling;
+                        const otherIcon = otherHeader.querySelector('.fa-minus');
+                        if (otherAnswer && otherAnswer.style.display === 'block') {
+                            otherAnswer.style.display = 'none';
+                            if (otherIcon) {
+                                otherIcon.classList.remove('fa-minus');
+                                otherIcon.classList.add('fa-plus');
+                            }
+                            otherHeader.style.color = 'inherit';
+                        }
+                    }
+                });
+            });
+        }
+    });
+
+    // 12. Blog Details Logic
+    if (window.location.href.includes('blog-details.html')) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = parseInt(urlParams.get('id'));
+
+        if (articleId && window.blogData) {
+            const article = window.blogData.find(b => b.id === articleId);
+
+            if (article) {
+                document.title = `${article.title} | Ocean Elite`;
+                
+                const metaElement = document.getElementById('article-meta');
+                const titleElement = document.getElementById('article-title');
+                const heroElement = document.getElementById('article-hero');
+                const contentElement = document.getElementById('article-content');
+
+                if (metaElement) metaElement.textContent = `${article.category} | ${article.date}`;
+                
+                if (titleElement) {
+                    const titleParts = article.title.split(' ');
+                    const lastWord = titleParts.pop();
+                    titleElement.innerHTML = `${titleParts.join(' ')} <span class="text-gold">${lastWord}</span>`;
+                }
+                
+                if (heroElement) {
+                    // Prepend assets/images/ if not already present
+                    let heroPath = article.heroImage;
+                    if (!heroPath.startsWith('assets/')) {
+                        heroPath = 'assets/images/' + heroPath;
+                    }
+                    heroElement.src = heroPath;
+                    heroElement.alt = article.title;
+                    
+                    // Fallback to Unsplash if image fails to load
+                    heroElement.onerror = function() {
+                        this.src = 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5947?auto=format&fit=crop&w=1200&q=80';
+                        this.onerror = null; // Prevent infinite loop
+                    };
+                }
+                if (contentElement) contentElement.innerHTML = article.content;
+            }
+        }
+    }
 });
+
