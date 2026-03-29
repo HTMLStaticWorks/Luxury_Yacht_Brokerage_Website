@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="160" viewBox="0 0 520 160" role="img" aria-label="Amels">
+  <!-- Minimal wordmark (no background) so it matches other partner logos -->
+  <g transform="translate(0 0)">
+    <!-- generous whitespace around the mark to avoid looking larger than PNG logos -->
+    <g transform="translate(95 58)">
+      <!-- simple mark -->
+      <path d="M0 44 L14 0 L28 44 Z" fill="#111111" opacity="0.9"/>
+      <path d="M14 14 L22 38 H6 Z" fill="#ffffff" opacity="0.0"/>
+
+      <!-- wordmark -->
+      <text x="52" y="32" font-family="Outfit, Arial, sans-serif" font-size="40" font-weight="800" letter-spacing="5" fill="#111111">AMELS</text>
+      <text x="54" y="56" font-family="Outfit, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="3" fill="#6c757d">DUTCH SHIPYARDS</text>
+    </g>
+  </g>
+</svg>

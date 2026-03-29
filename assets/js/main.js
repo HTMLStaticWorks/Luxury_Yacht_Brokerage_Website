@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('dir', newDir);
     };
 
+    if (rtlBtn) rtlBtn.addEventListener('click', toggleRTL);
     if (rtlBtnMobile) rtlBtnMobile.addEventListener('click', toggleRTL);
     
     // 3. Navigation Active State Logic
@@ -90,6 +91,40 @@ document.addEventListener('DOMContentLoaded', () => {
             header.classList.remove('scrolled');
         }
     });
+
+    // Back to Top Button (global)
+    const ensureBackToTop = () => {
+        if (document.getElementById('back-to-top')) return;
+
+        const btn = document.createElement('button');
+        btn.id = 'back-to-top';
+        btn.className = 'back-to-top';
+        btn.type = 'button';
+        btn.setAttribute('aria-label', 'Back to top');
+        btn.innerHTML = '<i class="fas fa-chevron-up" aria-hidden="true"></i>';
+
+        btn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        document.body.appendChild(btn);
+
+        let ticking = false;
+        const onScroll = () => {
+            if (ticking) return;
+            ticking = true;
+            window.requestAnimationFrame(() => {
+                const shouldShow = window.scrollY > 450;
+                btn.classList.toggle('is-visible', shouldShow);
+                ticking = false;
+            });
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    };
+
+    ensureBackToTop();
 
     // 4. Smooth Animations (Basic Intersection Observer)
     const revealElements = document.querySelectorAll('.reveal');
