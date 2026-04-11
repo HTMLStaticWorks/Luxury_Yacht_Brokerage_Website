@@ -15,7 +15,8 @@
 
     <!-- Sidebar -->
     <aside id="dashboard-sidebar" class="dashboard-sidebar" style="display: flex; flex-direction: column;">
-        <div style="padding: 1.5rem 1rem; border-bottom: 1px solid rgba(0,0,0,0.05); flex-shrink: 0; background: #ffffff; display: flex; justify-content: center; align-items: center;">
+        <div
+            style="padding: 1.5rem 1rem; border-bottom: 1px solid rgba(0,0,0,0.05); flex-shrink: 0; background: #ffffff; display: flex; justify-content: center; align-items: center;">
             <a href="index.html" class="logo"><img src="logo.svg" alt="Ocean Elite Logo" style="height: 45px;"></a>
         </div>
 
@@ -29,32 +30,33 @@
                 <li style="margin-top: auto;"><a href="index.html" class="dash-link"><i class="fas fa-sign-out-alt"></i>
                         Logout</a></li>
 
-                <!-- Theme & RTL Controls below Logout -->
-                <li style="margin-top: 1rem; padding: 0 1rem;">
-                    <div class="nav-toggle-group" style="gap: 0.5rem;">
+                <!-- Mobile Only Toggles -->
+                <li class="show-mobile-500" style="margin-top: 1rem; padding: 0 1rem;">
+                    <div class="nav-toggle-group" style="display: flex; gap: 0.5rem; align-items: center;">
                         <button id="theme-toggle" class="btn-icon"
-                            style="flex: 1; height: 36px; font-size: 0.8rem; border-radius: 6px;"><i
-                                class="fas fa-moon"></i></button>
+                            style="width: 35px; height: 35px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-moon"></i>
+                        </button>
                         <button id="rtl-toggle" class="btn-icon"
-                            style="flex: 1; height: 36px; font-size: 0.8rem; border-radius: 6px;"><i
-                                class="fas fa-language"></i></button>
+                            style="width: 35px; height: 35px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                            RTL
+                        </button>
                     </div>
                 </li>
             </ul>
         </nav>
 
-        <div style="padding: 0.75rem 1.25rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0;"
-            class="sidebar-user-profile">
+        <!-- Mobile Only Profile (No Dropdown) -->
+        <div class="sidebar-user-profile show-mobile-500"
+            style="padding: 0.75rem 1.25rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; margin: 0 0.75rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.03);">
             <div
                 style="width: 34px; height: 34px; border-radius: 50%; background: var(--primary-gold); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.75rem;">
                 K</div>
-            <div style="flex: 1; min-width: 0;">
+            <div style="flex: 1; min-width: 0; display: flex; align-items: center; gap: 0.5rem;">
                 <p
-                    style="font-weight: 600; font-size: 0.75rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                    style="font-weight: 600; font-size: 0.75rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: white; margin: 0;">
                     Krish Admin</p>
-                <p
-                    style="font-size: 0.625rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.05em;">
-                    Master Broker</p>
+                <i class="fas fa-crown" style="font-size: 0.6rem; color: var(--primary-gold);" title="Premium Member"></i>
             </div>
         </div>
     </aside>
@@ -73,22 +75,42 @@
                     Overview</h2>
             </div>
 
-            <nav class="nav-menu">
-                <div class="nav-item-dropdown">
-                    <a href="index.html" class="nav-link">Home <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-menu">
-                        <a href="index.html" class="dropdown-link">Home 1</a>
-                        <a href="home-2.html" class="dropdown-link">Home 2</a>
-                    </div>
+            <div class="header-actions hide-mobile-500" style="display: flex; align-items: center; gap: 0.75rem;">
+                <!-- RTL & Theme Toggles -->
+                <button id="header-rtl-toggle" class="btn-icon" title="Toggle RTL"
+                    style="background: var(--bg-light); border: 1px solid var(--border-color); color: var(--text-dark); width: 35px; height: 35px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition); flex-shrink: 0;">
+                    RTL
+                </button>
+                <button id="header-theme-toggle" class="btn-icon" title="Toggle Theme"
+                    style="background: var(--bg-light); border: 1px solid var(--border-color); color: var(--text-dark); width: 35px; height: 35px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition); flex-shrink: 0;">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <div style="width: 1px; height: 24px; background: var(--border-color); margin: 0 0.25rem;"></div>
+
+                <!-- Profile Display (No Dropdown) -->
+                <div class="user-profile-display"
+                    style="color: var(--text-dark); display: flex; align-items: center; gap: 0.75rem; height: 40px; padding: 0 1rem; border-radius: 10px; background: var(--bg-light); border: 1px solid var(--border-color);">
+                    <div
+                        style="width: 28px; height: 28px; border-radius: 50%; background: var(--primary-gold); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.7rem; flex-shrink: 0;">
+                        K</div>
+                    <span style="font-weight: 600; font-size: 0.813rem; text-transform: none; letter-spacing: 0;">Krish
+                        Admin</span>
+                    <i class="fas fa-crown" style="font-size: 0.7rem; color: var(--primary-gold); margin-left: 0.25rem;" title="Premium Member"></i>
                 </div>
-                <!-- Other redundant links hidden in dashboard.html for brevity in diff but remaining in file -->
-            </nav>
+            </div>
 
         </header>
 
         <div class="dashboard-content" style="padding: 2rem;">
             <!-- Section: Overview -->
             <div id="overview" class="dashboard-section active">
+                <div class="section-header-standard"
+                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; background: var(--bg-white); padding: 0 2rem; border-radius: 12px; box-shadow: var(--shadow); height: 70px;">
+                    <h3 style="margin: 0; font-size: 1rem; color: var(--text-dark);">Overview Analytical Data</h3>
+                    <div style="font-size: 0.7rem; color: var(--text-muted); font-weight: 600;">LAST UPDATED: MAR 25,
+                        2026</div>
+                </div>
                 <!-- Stats -->
                 <div class="stats-grid"
                     style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
@@ -155,7 +177,14 @@
 
             <!-- Section: My Listings (Placeholder) -->
             <div id="listings" class="dashboard-section">
-                <div style="background: var(--bg-white); padding: 3rem; text-align: center; box-shadow: var(--shadow);">
+                <div class="section-header-standard"
+                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; background: var(--bg-white); padding: 0 2rem; border-radius: 12px; box-shadow: var(--shadow); height: 70px;">
+                    <h3 style="margin: 0; font-size: 1rem; color: var(--text-dark);">Vessel Inventory</h3>
+                    <button class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.7rem;">+ Add
+                        Yacht</button>
+                </div>
+                <div
+                    style="background: var(--bg-white); padding: 3rem; text-align: center; box-shadow: var(--shadow); border-radius: 12px;">
                     <i class="fas fa-ship"
                         style="font-size: 3rem; color: var(--primary-gold); margin-bottom: 1.5rem; opacity: 0.3;"></i>
                     <h3>My Yacht Listings</h3>
@@ -167,7 +196,13 @@
 
             <!-- Section: Saved Yachts (Placeholder) -->
             <div id="saved" class="dashboard-section">
-                <div style="background: var(--bg-white); padding: 3rem; text-align: center; box-shadow: var(--shadow);">
+                <div class="section-header-standard"
+                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; background: var(--bg-white); padding: 0 2rem; border-radius: 12px; box-shadow: var(--shadow); height: 70px;">
+                    <h3 style="margin: 0; font-size: 1rem; color: var(--text-dark);">Collection Favorites</h3>
+                    <div style="font-size: 0.7rem; color: var(--text-muted); font-weight: 600;">8 YACHTS SAVED</div>
+                </div>
+                <div
+                    style="background: var(--bg-white); padding: 3rem; text-align: center; box-shadow: var(--shadow); border-radius: 12px;">
                     <i class="fas fa-heart"
                         style="font-size: 3rem; color: #ff4757; margin-bottom: 1.5rem; opacity: 0.3;"></i>
                     <h3>Saved Favorites</h3>
@@ -178,7 +213,13 @@
 
             <!-- Section: Inquiries (Placeholder) -->
             <div id="inquiries" class="dashboard-section">
-                <div style="background: var(--bg-white); padding: 3rem; text-align: center; box-shadow: var(--shadow);">
+                <div class="section-header-standard"
+                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; background: var(--bg-white); padding: 0 2rem; border-radius: 12px; box-shadow: var(--shadow); height: 70px;">
+                    <h3 style="margin: 0; font-size: 1rem; color: var(--text-dark);">Message Hub</h3>
+                    <div class="status-badge responded" style="font-size: 0.65rem;">5 NEW</div>
+                </div>
+                <div
+                    style="background: var(--bg-white); padding: 3rem; text-align: center; box-shadow: var(--shadow); border-radius: 12px;">
                     <i class="fas fa-envelope-open-text"
                         style="font-size: 3rem; color: var(--primary-gold); margin-bottom: 1.5rem; opacity: 0.3;"></i>
                     <h3>Client Inquiries</h3>
@@ -188,7 +229,14 @@
 
             <!-- Section: Profile (Placeholder) -->
             <div id="profile" class="dashboard-section">
-                <div style="background: var(--bg-white); padding: 3rem; box-shadow: var(--shadow); max-width: 600px;">
+                <div class="section-header-standard"
+                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; background: var(--bg-white); padding: 0 2rem; border-radius: 12px; box-shadow: var(--shadow); height: 70px;">
+                    <h3 style="margin: 0; font-size: 1rem; color: var(--text-dark);">Security & Identity</h3>
+                    <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.7rem;">Privacy
+                        Log</button>
+                </div>
+                <div
+                    style="background: var(--bg-white); padding: 3rem; box-shadow: var(--shadow); max-width: 600px; border-radius: 12px;">
                     <h3 style="margin-bottom: 2rem;">Account Settings</h3>
                     <div style="display: flex; flex-direction: column; gap: 1.5rem;">
                         <div>
@@ -425,6 +473,21 @@
 
             .dashboard-header {
                 padding: 0.5rem 1rem !important;
+            }
+        }
+
+        /* Mobile specific toggles and profile at 500px */
+        .show-mobile-500 {
+            display: none !important;
+        }
+
+        @media (max-width: 500px) {
+            .show-mobile-500 {
+                display: flex !important;
+            }
+
+            .hide-mobile-500 {
+                display: none !important;
             }
         }
     </style>

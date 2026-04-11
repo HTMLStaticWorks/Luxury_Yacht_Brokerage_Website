@@ -3,6 +3,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Theme Toggle Logic
     const themeBtn = document.getElementById('theme-toggle');
+    const headerThemeBtn = document.getElementById('header-theme-toggle');
     const themeBtnMobile = document.getElementById('theme-toggle-mobile');
     const currentTheme = localStorage.getItem('theme') || 'light';
 
@@ -15,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', newTheme);
         
         // Update all theme icons
-        const icons = document.querySelectorAll('#theme-toggle i, #theme-toggle-mobile i');
+        const icons = document.querySelectorAll('#theme-toggle i, #header-theme-toggle i, #theme-toggle-mobile i');
         icons.forEach(icon => {
             if (newTheme === 'dark') {
                 icon.classList.remove('fa-moon');
@@ -28,16 +29,18 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
+    if (headerThemeBtn) headerThemeBtn.addEventListener('click', toggleTheme);
     if (themeBtnMobile) themeBtnMobile.addEventListener('click', toggleTheme);
 
     // Initial icon state
     if (currentTheme === 'dark') {
-        const icons = document.querySelectorAll('#theme-toggle i, #theme-toggle-mobile i');
+        const icons = document.querySelectorAll('#theme-toggle i, #header-theme-toggle i, #theme-toggle-mobile i');
         icons.forEach(icon => { icon.classList.remove('fa-moon'); icon.classList.add('fa-sun'); });
     }
 
     // 2. RTL Toggle Logic
     const rtlBtn = document.getElementById('rtl-toggle');
+    const headerRtlBtn = document.getElementById('header-rtl-toggle');
     const rtlBtnMobile = document.getElementById('rtl-toggle-mobile');
     const currentDir = localStorage.getItem('dir') || 'ltr';
 
@@ -51,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     if (rtlBtn) rtlBtn.addEventListener('click', toggleRTL);
+    if (headerRtlBtn) headerRtlBtn.addEventListener('click', toggleRTL);
     if (rtlBtnMobile) rtlBtnMobile.addEventListener('click', toggleRTL);
     
     // 3. Navigation Active State Logic
