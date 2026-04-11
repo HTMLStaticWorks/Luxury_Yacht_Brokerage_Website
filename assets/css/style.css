@@ -6,6 +6,7 @@
 :root {
     --primary-gold: #584281ff;
     --primary-gold-hover: #ac4bd9ff;
+    --text-violet-vibrant: #d194ffff; /* New vibrant violet for dark backgrounds */
     --bg-white: #ffffff;
     --bg-light: #f8f9fa;
     --bg-dark: #121212;
@@ -260,8 +261,13 @@ header.header-always-scrolled .nav-link.active {
     transition: transform 0.3s;
 }
 
+.nav-item-dropdown:hover>.nav-link {
+    color: var(--primary-gold) !important;
+}
+
 .nav-item-dropdown:hover>.nav-link i {
     transform: rotate(180deg);
+    color: var(--primary-gold);
 }
 
 .nav-item-dropdown {
@@ -408,11 +414,15 @@ header.header-always-scrolled .nav-actions .btn-icon {
 }
 
 .nav-actions .btn-icon:hover {
-    background: var(--primary-gold);
+    background: rgba(88, 66, 129, 0.05);
     border-color: var(--primary-gold);
-    color: white !important;
+    color: var(--primary-gold) !important;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(88, 66, 129, 0.3);
+    box-shadow: 0 4px 12px rgba(88, 66, 129, 0.15);
+}
+
+.btn-menu:hover {
+    color: var(--primary-gold) !important;
 }
 
 /* RTL Text Toggle Styling */
@@ -432,6 +442,7 @@ header.header-always-scrolled .nav-actions .btn-icon {
 #rtl-toggle-mobile:hover, 
 #header-rtl-toggle:hover {
     text-decoration: none !important;
+    color: var(--primary-gold) !important;
 }
 
 header .btn-icon,
@@ -562,7 +573,7 @@ body>div>div .nav-actions .btn-icon {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.7) 100%);
     z-index: 1;
 }
 
@@ -571,13 +582,24 @@ body>div>div .nav-actions .btn-icon {
     z-index: 2;
     text-align: center;
     color: white;
-    max-width: 800px;
+    max-width: 900px; /* Slightly wider for better text flow */
+    padding: 0 1rem;
 }
 
 .hero-content h1 {
     font-size: 5rem;
     margin-bottom: 1.5rem;
-    line-height: 1;
+    line-height: 1.1;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Improved depth */
+}
+
+.hero-content p {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content .text-gold {
+    color: var(--text-violet-vibrant);
+    filter: drop-shadow(0 0 10px rgba(209, 148, 255, 0.2));
 }
 
 /* Hero Search Bar - Premium Integrated */
@@ -887,6 +909,10 @@ body>div>div .nav-actions .btn-icon {
     margin-right: 1rem;
     transition: var(--transition);
     /* Add transition for smoothness */
+}
+
+.btn-sidebar-toggle:hover {
+    color: var(--primary-gold);
 }
 
 .btn-sidebar-toggle.hidden {
@@ -2063,6 +2089,17 @@ body.scrolled .contact-social-icon {
     margin: 0 auto;
 }
 
+.enterprise-banner p {
+    margin-bottom: 2.25rem;
+    opacity: 0.85;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.enterprise-banner .btn {
+    margin-top: 0.5rem;
+}
+
 .enterprise-banner .banner-icon {
     position: absolute;
     right: -2rem;
@@ -2077,4 +2114,28 @@ body.scrolled .contact-social-icon {
     .enterprise-banner {
         padding: 3rem 1rem;
     }
+}
+
+/* FAQ Toggle Hover Effect */
+.faq-item h3 {
+    transition: var(--transition);
+}
+
+.faq-item h3:hover {
+    color: var(--primary-gold);
+}
+
+.faq-item h3:hover i {
+    color: var(--primary-gold);
+    transform: rotate(90deg);
+}
+
+.faq-item h3 i {
+    transition: var(--transition);
+}
+
+/* Auth Page specific hover fix */
+.auth-page-wrapper .btn-icon:hover {
+    background: rgba(88, 66, 129, 0.1) !important;
+    color: var(--primary-gold) !important;
 }
