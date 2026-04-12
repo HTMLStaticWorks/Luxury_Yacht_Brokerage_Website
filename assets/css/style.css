@@ -711,8 +711,20 @@ body>div>div .nav-actions .btn-icon {
     padding: 100px 0;
 }
 
+.accent-divider {
+    background: var(--primary-gold);
+}
+
+[data-theme="dark"] .accent-divider {
+    background: var(--text-violet-vibrant);
+}
+
 .text-gold {
     color: var(--primary-gold);
+}
+
+[data-theme="dark"] .text-gold {
+    color: var(--text-violet-vibrant);
 }
 
 /* Service Overview - Learn More link interaction */
@@ -1185,6 +1197,11 @@ header.header-always-scrolled .btn-menu {
         background: var(--primary-gold) !important;
         color: white !important;
     }
+
+    /* Fix for RTL toggle visibility on hover/click in mobile drawer */
+    .mobile-nav-actions #rtl-toggle-mobile:hover {
+        color: white !important;
+    }
 }
 
 /* Mobile Hamburger Menu */
@@ -1318,6 +1335,16 @@ header.header-always-scrolled .btn-menu {
     opacity: 1;
     filter: grayscale(0);
     transform: scale(1.05);
+}
+
+[data-theme="dark"] .partner-logo {
+    filter: invert(1) brightness(2);
+    opacity: 0.6;
+}
+
+[data-theme="dark"] .partner-logo:hover {
+    opacity: 1;
+    filter: invert(1) brightness(2);
 }
 
 /* Exclusive Yacht Collections Section */
